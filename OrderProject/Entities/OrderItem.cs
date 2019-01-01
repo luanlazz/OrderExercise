@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Text;
+using System.Globalization;
+
 namespace OrderProject.Entities
 {
     public class OrderItem
@@ -18,11 +21,23 @@ namespace OrderProject.Entities
             this.product = product;
         }
 
-        public double subTotal()
+        public double SubTotal()
         {
             return quantity * price;
         }
 
+        public override string ToString()
+        {
+            StringBuilder str = new StringBuilder();
+            str.Append(product);
+            str.Append(", ");
+            str.Append("$" + this.price);
+            str.Append(", ");
+            str.Append("Quantity: " + this.quantity);
+            str.Append(", ");
+            str.Append("Subtotal: $" + SubTotal().ToString("F2", CultureInfo.InvariantCulture));
 
+            return str.ToString();
+        }
     }
 }

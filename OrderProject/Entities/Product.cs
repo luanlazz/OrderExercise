@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 namespace OrderProject.Entities
 {
     public class Product
@@ -14,6 +15,11 @@ namespace OrderProject.Entities
         {
             this.name = name;
             this.price = price;
+        }
+
+        public override string ToString()
+        {
+            return this.name;
         }
     }
 }
